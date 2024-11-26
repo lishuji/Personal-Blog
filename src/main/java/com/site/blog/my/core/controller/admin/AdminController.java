@@ -3,24 +3,19 @@ package com.site.blog.my.core.controller.admin;
 import cn.hutool.captcha.ShearCaptcha;
 import com.site.blog.my.core.entity.AdminUser;
 import com.site.blog.my.core.service.*;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link http://13blog.site
+ * 管理员登录
  */
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
     @Resource
     private AdminUserService adminUserService;
     @Resource
@@ -33,7 +28,6 @@ public class AdminController {
     private TagService tagService;
     @Resource
     private CommentService commentService;
-
 
     @GetMapping({"/login"})
     public String login() {

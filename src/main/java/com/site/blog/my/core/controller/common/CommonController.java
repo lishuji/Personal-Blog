@@ -2,11 +2,12 @@ package com.site.blog.my.core.controller.common;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.ShearCaptcha;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class CommonController {
@@ -18,7 +19,7 @@ public class CommonController {
         httpServletResponse.setDateHeader("Expires", 0);
         httpServletResponse.setContentType("image/png");
 
-        ShearCaptcha shearCaptcha= CaptchaUtil.createShearCaptcha(150, 30, 4, 2);
+        ShearCaptcha shearCaptcha = CaptchaUtil.createShearCaptcha(150, 30, 4, 2);
 
         // 验证码存入session
         httpServletRequest.getSession().setAttribute("verifyCode", shearCaptcha);
